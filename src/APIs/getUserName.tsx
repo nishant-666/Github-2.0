@@ -1,6 +1,5 @@
 export const fetchCurrentUser = () => {
-  const token =
-    "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";
+  const token = process.env.GITHUB_TOKEN;
 
   fetch("https://api.github.com/user", {
     method: "GET",
