@@ -1,11 +1,12 @@
 import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import styles from "./Auth.module.scss";
 import CommonButton from "../common/Button";
 import HomeComponent from "@/components/Home";
+import { fetchSession } from "@/hooks/fetchSession";
 
 export default function Authenticate() {
-  const { data: session } = useSession();
+  let { session } = fetchSession();
 
   if (session) {
     return (

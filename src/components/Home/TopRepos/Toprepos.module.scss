@@ -1,0 +1,37 @@
+.topRepos {
+  background-color: #0e0e0e;
+  overflow-x: auto;
+  width: 25%;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  color: rgb(203, 203, 203);
+  .headContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header {
+    font-weight: 600;
+  }
+
+  .repoInner {
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .currentUserImage {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+    .repoName:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

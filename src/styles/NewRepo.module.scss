@@ -1,0 +1,38 @@
+.newRepoMain {
+  background-color: rgb(18, 18, 21);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  .newRepoInner {
+    width: 50%;
+    margin-top: 40px;
+
+    .title {
+      font-size: 26px;
+      font-weight: 600;
+      color: #e1e1e1;
+      font-family: "Bricolage Grotesque", sans-serif;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #939393;
+    }
+
+    .repoForm {
+      margin-top: 30px;
+
+      .repoInput {
+        margin-top: 10px;
+      }
+
+      .repoDesc {
+        margin-top: 10px;
+      }
+
+      .reactIcons {
+        margin-left: 5px;
+      }
+    }
+  }
+}

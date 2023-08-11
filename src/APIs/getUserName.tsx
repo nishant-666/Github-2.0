@@ -1,23 +1,13 @@
-export const fetchCurrentUser = () => {
-  const token = process.env.GITHUB_TOKEN;
+export const fetchCurrentUser = async () => {
+  const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
-  fetch("https://api.github.com/user", {
+  let response = await fetch("https://api.github.com/user", {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github.v3+json",
     },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`API request failed with status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // console.log("User login:", data.login);
-    })
-    .catch((error) => {
-      console.error("Error:", error.message);
-    });
+  });
+
+  return response.json();
 };
