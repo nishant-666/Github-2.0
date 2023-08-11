@@ -30,8 +30,24 @@
         margin-top: 10px;
       }
 
+      .repoRadioBtn {
+        margin-top: 10px;
+      }
+
       .reactIcons {
         margin-left: 5px;
+      }
+
+      .addGitignore {
+        margin-top: 15px;
+        font-family: "Bricolage Grotesque", sans-serif;
+        color: whitesmoke;
+        .gitIgnoreTitle {
+          font-size: 17px;
+        }
+        .subtitle {
+          font-size: 13px;
+        }
       }
     }
   }

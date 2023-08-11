@@ -33,12 +33,14 @@ export const getAllUserRepos = async (userName: string, limit: number) => {
   return response;
 };
 
-export const createRepo = async (name: string, description: string) => {
+export const createRepo = async (repoData: {
+  name: string;
+  description: string;
+  private: boolean;
+}) => {
   await octokit.request("POST /user/repos", {
-    name: name,
-    description: description,
+    ...repoData,
     homepage: "https://github.com",
-    private: false,
     is_template: false,
     headers: {
       "X-GitHub-Api-Version": "2022-11-28",

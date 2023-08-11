@@ -14,3 +14,16 @@ interface CommonTextArea {
   name: string;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
+
+interface CommonRadioType {
+  radioOption: {
+    map: Function;
+  };
+
+  getInputs: (event: React.ChangeEvent) => void;
+}
+
+interface CommonCheckboxType {
+  title: string;
+  getInputs: (event: React.ChangeEvent) => void;
+}

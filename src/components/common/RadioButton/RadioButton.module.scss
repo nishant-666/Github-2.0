@@ -1,0 +1,13 @@
+.radioContainer {
+  .radioOption {
+    color: whitesmoke;
+  }
+
+  .optionsContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+}
