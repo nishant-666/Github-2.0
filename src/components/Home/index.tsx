@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import styles from "./Home.module.scss";
 import { fetchCurrentUser } from "@/APIs/getUserName";
-import CommonButton from "../common/Button";
 import TopRepos from "./TopRepos";
+import EventComponent from "./Events";
 
 export default function HomeComponent() {
   const getCurrentUser = async () => {
@@ -15,8 +15,10 @@ export default function HomeComponent() {
     getRepos();
   }, []);
   return (
-    <div>
+    <div className={styles.home}>
       <TopRepos />
+
+      <EventComponent />
     </div>
   );
 }

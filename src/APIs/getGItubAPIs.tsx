@@ -47,3 +47,31 @@ export const createRepo = async (repoData: {
     },
   });
 };
+
+export const getAllEvents = async (userName: string) => {
+  try {
+    let response = await octokit.request(
+      "GET /users/{username}/received_events",
+      {
+        username: userName,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getReposByUserName = async (repoName: string) => {
+  let response = await octokit.request(`GET /repos/${repoName}`, {
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+
+  return response.data;
+};

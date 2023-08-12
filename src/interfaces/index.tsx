@@ -27,3 +27,11 @@ interface CommonCheckboxType {
   title: string;
   getInputs: (event: React.ChangeEvent) => void;
 }
+
+interface RepoDetails {
+  repoName: string;
+  eventType: string;
+  payload: {
+    commits: any;
+  };
+}

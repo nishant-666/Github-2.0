@@ -1,0 +1,67 @@
+.eventsMain {
+  width: 60%;
+  min-height: 100vh;
+  height: auto;
+  padding: 20px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  .forks {
+    margin: 20px 10px;
+    display: flex;
+    gap: 15px;
+    .actorName {
+      color: whitesmoke;
+    }
+
+    .actorName:hover {
+      color: #2f81f7;
+      cursor: pointer;
+    }
+    .forkeeAvatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.eventRepoCard {
+  width: 85%;
+  margin: 10px;
+  height: 80px;
+  margin-left: 20px;
+  border-radius: 5px;
+  background-color: #0e0e0e;
+  border: 1px solid rgb(64, 64, 64);
+  display: flex;
+  align-items: center;
+}
+
+.repoDetails {
+  margin-left: 30px;
+  .repoName {
+    margin-top: 10px;
+  }
+
+  .repoName:hover {
+    color: #2f81f7;
+    cursor: pointer;
+  }
+  .subCard {
+    display: flex;
+    gap: 15px;
+    .span {
+      font-size: 13px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      .icon {
+        cursor: pointer;
+      }
+    }
+
+    .updatedAt {
+      margin-left: 10px;
+    }
+  }
+}
