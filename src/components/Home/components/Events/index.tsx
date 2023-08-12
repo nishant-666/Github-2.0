@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Events.module.scss";
-import useFetchEvents from "../Hooks/useFetchEvents";
+import useFetchEvents from "../../Hooks/useFetchEvents";
 import { useFetchCurrentUser } from "@/hooks/fetchCurrentUser";
 import RepoDetails from "./RepoDetails";
 

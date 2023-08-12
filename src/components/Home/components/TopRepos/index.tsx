@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Toprepos.module.scss";
-import getTopRepos from "../Hooks/getTopRepos";
+import getTopRepos from "../../Hooks/getTopRepos";
 import { useFetchCurrentUser } from "@/hooks/fetchCurrentUser";
 import { useRouter } from "next/router";
 
