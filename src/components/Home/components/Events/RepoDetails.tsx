@@ -95,7 +95,7 @@ export default function RepoDetails({
           ) : (
             <AiOutlineStar size={18} />
           )}
-          <p>Star</p>
+          {isStarred ? <p>Starred</p> : <p>Star</p>}
         </div>
       )}
     </div>
