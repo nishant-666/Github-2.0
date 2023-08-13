@@ -5,7 +5,7 @@ interface CommonButton {
 
 interface CommonInput {
   title: string;
-  name: string;
+  name?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
