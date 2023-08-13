@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Events.module.scss";
 import useFetchEvents from "../../Hooks/useFetchEvents";
 import { useFetchCurrentUser } from "@/hooks/fetchCurrentUser";
@@ -7,36 +7,45 @@ import RepoDetails from "./RepoDetails";
 export default function EventComponent() {
   let { currentUser } = useFetchCurrentUser();
   let { events } = useFetchEvents(currentUser.login);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, [events]);
+
+  if (isLoading) return <></>;
   return (
     <div className={styles.eventsMain}>
       {events?.map(
-        (event: {
-          type:
-            | "ForkEvent"
-            | "WatchEvent"
-            | "PushEvent"
-            | "CreateEvent"
-            | "IssueCommentEvent";
-          payload: {
-            commits: {
-              sha: "";
-              message: "";
+        (
+          event: {
+            type:
+              | "ForkEvent"
+              | "WatchEvent"
+              | "PushEvent"
+              | "CreateEvent"
+              | "IssueCommentEvent";
+            payload: {
+              commits: {
+                sha: "";
+                message: "";
+              };
+              forkee: {
+                full_name: "";
+              };
             };
-            forkee: {
-              full_name: "";
+            repo: {
+              name: "";
             };
-          };
-          repo: {
-            name: "";
-          };
-          actor: {
-            login: "";
-            avatar_url: "";
-          };
-        }) => {
+            actor: {
+              login: "";
+              avatar_url: "";
+            };
+          },
+          index
+        ) => {
           return (
-            <div>
+            <div key={index}>
               {event?.type === "PushEvent" ? (
                 <div className={styles.forks}>
                   <img

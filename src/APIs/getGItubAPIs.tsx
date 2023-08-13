@@ -75,3 +75,42 @@ export const getReposByUserName = async (repoName: string) => {
 
   return response.data;
 };
+
+export const starRepos = async (owner: string, repo: string) => {
+  let response = await octokit.request("PUT /user/starred/{owner}/{repo}", {
+    owner: owner,
+    repo: repo,
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+
+  return response.data;
+};
+
+export const unStarRepos = async (owner: string, repo: string) => {
+  let response = await octokit.request("DELETE /user/starred/{owner}/{repo}", {
+    owner: owner,
+    repo: repo,
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+
+  return response.data;
+};
+
+export const isRepoStarred = async (owner: string, repo: string) => {
+  try {
+    let response = await octokit.request("GET /user/starred/{owner}/{repo}", {
+      owner: owner,
+      repo: repo,
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    });
+    return response.status === 204 ? response : "";
+  } catch (error) {
+    return;
+  }
+};
