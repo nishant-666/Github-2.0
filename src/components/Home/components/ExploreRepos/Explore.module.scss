@@ -15,6 +15,16 @@
     font-weight: 600;
     color: whitesmoke;
   }
+  .languageBox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .langAvatar {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
 
   .repoName {
     font-size: 16px;
@@ -24,6 +34,11 @@
   .repoName:hover {
     text-decoration: underline;
     cursor: pointer;
+  }
+
+  .footer {
+    display: flex;
+    gap: 30px;
   }
 
   .starIcon {

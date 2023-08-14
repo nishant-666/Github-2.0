@@ -3,6 +3,7 @@ import { getReposByUserName } from "@/APIs/getGItubAPIs";
 import styles from "./Events.module.scss";
 import { AiOutlineStar } from "react-icons/ai";
 import moment from "moment";
+import { languages } from "@/constants/colorCodes";
 
 export default function RepoDetails({
   repoName,
@@ -50,8 +51,18 @@ export default function RepoDetails({
         <p className={styles.repoName}>{repoData.full_name}</p>
 
         <div className={styles.subCard}>
-          <span className={styles.span}>{repoData.language}</span>
+          <div className={styles.languageContainer}>
+            {languages
+              .filter((lang) => lang.name === repoData.language)
+              .map((item) => (
+                <div
+                  style={{ backgroundColor: item.backgroundColor }}
+                  className={styles.langAvatar}
+                ></div>
+              ))}
 
+            <span className={styles.language}>{repoData.language}</span>
+          </div>
           <div className={styles.span}>
             <AiOutlineStar className={styles.icon} size={20} />
             <span>{repoData.stargazers_count}</span>

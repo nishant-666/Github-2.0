@@ -14,7 +14,7 @@ export default function EventComponent() {
   useEffect(() => {
     setIsLoading(false);
   }, [events]);
-  console.log(events);
+
   if (isLoading) return <></>;
   return (
     <div className={styles.eventsMain}>

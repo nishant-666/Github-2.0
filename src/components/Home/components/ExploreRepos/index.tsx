@@ -4,6 +4,7 @@ import { listPublicRepos } from "@/APIs/getGItubAPIs";
 import DividerComp from "@/components/common/Divider";
 import { AiOutlineStar } from "react-icons/ai";
 import { formatNumberToShort } from "@/helpers";
+import { languages } from "@/constants/colorCodes";
 
 export default function ExploreRepos() {
   const [latestRepos, setLatestRepos] = useState([]);
@@ -28,6 +29,7 @@ export default function ExploreRepos() {
             owner: {
               avatar_url: "";
             };
+            language: "";
             description: "";
             stargazers_count: "";
           }) => (
@@ -41,10 +43,24 @@ export default function ExploreRepos() {
                 {repo.description ? repo.description : "No Description"}
               </p>
 
-              <div className={styles.starIcon}>
-                <AiOutlineStar />{" "}
-                <span>
-                  {formatNumberToShort(Number(repo.stargazers_count))}
+              <div className={styles.footer}>
+                <div className={styles.starIcon}>
+                  <AiOutlineStar />{" "}
+                  <span>
+                    {formatNumberToShort(Number(repo.stargazers_count))}
+                  </span>
+                </div>
+                <span className={styles.languageBox}>
+                  {languages
+                    .filter((lang) => lang.name === repo.language)
+                    .map((item) => (
+                      <div
+                        style={{ backgroundColor: item.backgroundColor }}
+                        className={styles.langAvatar}
+                      ></div>
+                    ))}
+
+                  <span>{repo.language}</span>
                 </span>
               </div>
               <DividerComp />
