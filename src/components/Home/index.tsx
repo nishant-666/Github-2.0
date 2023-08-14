@@ -3,6 +3,7 @@ import styles from "./Home.module.scss";
 import { fetchCurrentUser } from "@/APIs/getUserName";
 import TopRepos from "./components/TopRepos";
 import EventComponent from "./components/Events";
+import ExploreRepos from "./components/ExploreRepos";
 
 export default function HomeComponent() {
   const getCurrentUser = async () => {
@@ -20,6 +21,8 @@ export default function HomeComponent() {
       <TopRepos />
 
       <EventComponent />
+
+      <ExploreRepos />
     </div>
   );
 }

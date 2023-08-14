@@ -1,5 +1,5 @@
 .eventsMain {
-  width: 60%;
+  width: 50%;
   min-height: 100vh;
   height: auto;
   padding: 20px;
@@ -25,7 +25,7 @@
 }
 
 .eventRepoCard {
-  width: 85%;
+  width: 95%;
   margin: 10px;
   height: 80px;
   margin-left: 20px;
@@ -44,6 +44,7 @@
   width: 100%;
   .repoName {
     margin-top: 10px;
+    font-size: 15px;
   }
 
   .repoName:hover {
@@ -54,7 +55,7 @@
     display: flex;
     gap: 15px;
     .span {
-      font-size: 13px;
+      font-size: 12px;
       margin: 10px 0;
       display: flex;
       align-items: center;
@@ -72,14 +73,14 @@
   .starBtn {
     margin-right: 20px;
     border: 1px solid rgb(52, 52, 52);
-    padding: 5px 20px;
+    padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: auto;
-    gap: 10px;
+    gap: 5px;
   }
 
   .starBtn:hover {

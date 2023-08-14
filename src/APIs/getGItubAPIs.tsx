@@ -100,17 +100,16 @@ export const unStarRepos = async (owner: string, repo: string) => {
   return response.data;
 };
 
-export const isRepoStarred = async (owner: string, repo: string) => {
+export const listPublicRepos = async () => {
   try {
-    let response = await octokit.request("GET /user/starred/{owner}/{repo}", {
-      owner: owner,
-      repo: repo,
+    let response = await octokit.request("GET /repositories", {
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
     });
-    return response.status === 204 ? response : "";
+
+    return response.data.reverse().slice(0, 10);
   } catch (error) {
-    return;
+    console.log(error);
   }
 };
