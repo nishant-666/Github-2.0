@@ -12,6 +12,11 @@
       color: whitesmoke;
     }
 
+    .created_at {
+      font-size: 13px;
+      margin-left: 3px;
+    }
+
     .actorName:hover {
       color: #2f81f7;
       cursor: pointer;
@@ -44,7 +49,9 @@
   width: 100%;
   .repoName {
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 16px;
+    color: whitesmoke;
+    font-weight: 600;
   }
 
   .repoName:hover {

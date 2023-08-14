@@ -3,6 +3,8 @@ import styles from "./Events.module.scss";
 import useFetchEvents from "../../Hooks/useFetchEvents";
 import { useFetchCurrentUser } from "@/hooks/fetchCurrentUser";
 import RepoDetails from "./RepoDetails";
+import moment from "moment";
+import { timeAgo } from "@/helpers";
 
 export default function EventComponent() {
   let { currentUser } = useFetchCurrentUser();
@@ -12,13 +14,14 @@ export default function EventComponent() {
   useEffect(() => {
     setIsLoading(false);
   }, [events]);
-
+  console.log(events);
   if (isLoading) return <></>;
   return (
     <div className={styles.eventsMain}>
       {events?.map(
         (
           event: {
+            created_at: "";
             type:
               | "ForkEvent"
               | "WatchEvent"
@@ -57,7 +60,13 @@ export default function EventComponent() {
                       {event?.actor?.login}
                     </span>{" "}
                     <span>pushed to </span>
-                    <span className={styles.actorName}>{event.repo.name}</span>
+                    <span className={styles.actorName}>
+                      {event.repo.name}
+                    </span>{" "}
+                    •
+                    <span className={styles.created_at}>
+                      {timeAgo(event.created_at)}
+                    </span>
                   </div>
                 </div>
               ) : (
@@ -78,7 +87,11 @@ export default function EventComponent() {
                       {event.payload.forkee.full_name}
                     </span>{" "}
                     from{" "}
-                    <span className={styles.actorName}>{event.repo.name}</span>
+                    <span className={styles.actorName}>{event.repo.name}</span>{" "}
+                    •
+                    <span className={styles.created_at}>
+                      {timeAgo(event.created_at)}
+                    </span>
                   </div>
                 </div>
               ) : (
@@ -96,7 +109,13 @@ export default function EventComponent() {
                       {event?.actor?.login}
                     </span>{" "}
                     <span>starred </span>
-                    <span className={styles.actorName}>{event.repo.name}</span>
+                    <span className={styles.actorName}>
+                      {event.repo.name}
+                    </span>{" "}
+                    •
+                    <span className={styles.created_at}>
+                      {timeAgo(event.created_at)}
+                    </span>
                   </div>
                 </div>
               ) : (

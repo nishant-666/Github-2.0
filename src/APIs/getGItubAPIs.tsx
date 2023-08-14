@@ -23,7 +23,6 @@ export const getAllUserRepos = async (userName: string, limit: number) => {
   let response = await octokit.request(
     `GET /users/${userName}/repos?per_page=${limit}&sort=created`,
     {
-      username: userName,
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
@@ -100,15 +99,33 @@ export const unStarRepos = async (owner: string, repo: string) => {
   return response.data;
 };
 
-export const listPublicRepos = async () => {
+export const isRepoStarred = async (owner: string, repo: string) => {
   try {
-    let response = await octokit.request("GET /repositories", {
+    let response = await octokit.request("GET /user/starred/{owner}/{repo}", {
+      owner: owner,
+      repo: repo,
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
     });
+    return response.status === 204 ? response : "";
+  } catch (error) {
+    return;
+  }
+};
 
-    return response.data.reverse().slice(0, 10);
+export const listPublicRepos = async () => {
+  try {
+    let response = await octokit.request(
+      "GET /search/repositories?q=trending&sort=stars&per_page=25",
+      {
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    return response.data.items;
   } catch (error) {
     console.log(error);
   }

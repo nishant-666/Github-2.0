@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getReposByUserName } from "@/APIs/getGItubAPIs";
 import styles from "./Events.module.scss";
+import { AiOutlineStar } from "react-icons/ai";
 import moment from "moment";
 
 export default function RepoDetails({
@@ -52,6 +53,8 @@ export default function RepoDetails({
           <span className={styles.span}>{repoData.language}</span>
 
           <div className={styles.span}>
+            <AiOutlineStar className={styles.icon} size={20} />
+            <span>{repoData.stargazers_count}</span>
             <span className={styles.updatedAt}>
               {moment(repoData.updated_at).format("lll")}
             </span>
