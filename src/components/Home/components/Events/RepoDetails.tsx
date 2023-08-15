@@ -54,8 +54,9 @@ export default function RepoDetails({
           <div className={styles.languageContainer}>
             {languages
               .filter((lang) => lang.name === repoData.language)
-              .map((item) => (
+              .map((item, index) => (
                 <div
+                  key={index}
                   style={{ backgroundColor: item.backgroundColor }}
                   className={styles.langAvatar}
                 ></div>

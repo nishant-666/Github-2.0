@@ -117,7 +117,7 @@ export const isRepoStarred = async (owner: string, repo: string) => {
 export const listPublicRepos = async () => {
   try {
     let response = await octokit.request(
-      "GET /search/repositories?q=trending&sort=stars&per_page=25",
+      "GET /search/repositories?q=trending&per_page=25",
       {
         headers: {
           "X-GitHub-Api-Version": "2022-11-28",

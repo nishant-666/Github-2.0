@@ -24,7 +24,7 @@ export default function ExploreRepos() {
       <div>
         {latestRepos.map(
           (repo: {
-            id: "";
+            id: 0;
             full_name: "";
             owner: {
               avatar_url: "";
@@ -53,8 +53,9 @@ export default function ExploreRepos() {
                 <span className={styles.languageBox}>
                   {languages
                     .filter((lang) => lang.name === repo.language)
-                    .map((item) => (
+                    .map((item, index) => (
                       <div
+                        key={index}
                         style={{ backgroundColor: item.backgroundColor }}
                         className={styles.langAvatar}
                       ></div>
