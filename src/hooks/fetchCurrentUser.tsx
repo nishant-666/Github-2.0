@@ -3,6 +3,7 @@ import { fetchCurrentUser } from "@/APIs/getUserName";
 
 export function useFetchCurrentUser() {
   const [currentUser, setCurrentUser] = useState({
+    name: "",
     login: "",
     avatar_url: "",
   });

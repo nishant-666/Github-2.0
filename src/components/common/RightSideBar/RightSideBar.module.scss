@@ -1,0 +1,54 @@
+.rightbarMain {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.rightbar {
+  display: flex;
+  gap: 10px;
+  width: 300px;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+.username {
+  color: white;
+
+  font-size: 16px;
+}
+
+.name {
+  color: #6e7681;
+
+  font-size: 16px;
+}
+
+.middleSection {
+  margin: 30px 0;
+  padding: 10px;
+}
+
+.option {
+  font-size: 15px;
+  margin: 5px 0;
+  color: rgb(201, 201, 201);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px;
+}
+
+.option:hover {
+  background-color: rgb(37, 37, 37);
+  border-radius: 5px;
+}
+
+.hrLine {
+  margin: 15px 0;
+  border-color: rgb(37, 37, 37) !important;
+}

@@ -1,0 +1,13 @@
+.drawerMain {
+  background-color: rgb(3, 2, 2) !important;
+  color: white !important;
+}
+
+.closeIcon {
+  cursor: pointer;
+}
+
+.drawerInner {
+  display: flex;
+  justify-content: space-between;
+}

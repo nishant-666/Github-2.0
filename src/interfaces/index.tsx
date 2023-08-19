@@ -35,3 +35,9 @@ interface RepoDetails {
     commits: any;
   };
 }
+
+interface DrawerComponent {
+  isDrawerOpen: boolean;
+  setDrawerOpen: Function;
+  children: React.ReactNode;
+}

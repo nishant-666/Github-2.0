@@ -3,7 +3,6 @@ import styles from "./Events.module.scss";
 import useFetchEvents from "../../Hooks/useFetchEvents";
 import { useFetchCurrentUser } from "@/hooks/fetchCurrentUser";
 import RepoDetails from "./RepoDetails";
-import moment from "moment";
 import { timeAgo } from "@/helpers";
 
 export default function EventComponent() {
@@ -27,7 +26,8 @@ export default function EventComponent() {
               | "WatchEvent"
               | "PushEvent"
               | "CreateEvent"
-              | "IssueCommentEvent";
+              | "IssueCommentEvent"
+              | "CommitCommentEvent";
             payload: {
               commits: {
                 sha: "";
@@ -123,7 +123,8 @@ export default function EventComponent() {
               )}
 
               {event?.type === "CreateEvent" ||
-              event?.type === "IssueCommentEvent" ? (
+              event?.type === "IssueCommentEvent" ||
+              event?.type === "CommitCommentEvent" ? (
                 <></>
               ) : (
                 <div className={styles.eventRepoCard}>
