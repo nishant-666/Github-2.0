@@ -1,0 +1,35 @@
+.profileMain {
+  background-color: black;
+  padding-left: 20px;
+  padding-top: 20px;
+  .profileTabs {
+    .tabList {
+      display: flex;
+      gap: 10px;
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 20px;
+        padding-bottom: 15px;
+
+        padding-right: 5px;
+      }
+
+      .activeTab {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 20px;
+        padding-bottom: 15px;
+
+        padding-right: 5px;
+        border-bottom: 4px solid rgb(191, 98, 64);
+      }
+      .list {
+        cursor: pointer;
+      }
+    }
+  }
+}
