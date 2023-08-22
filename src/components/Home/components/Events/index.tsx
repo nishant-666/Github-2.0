@@ -13,7 +13,7 @@ export default function EventComponent() {
   useEffect(() => {
     setIsLoading(false);
   }, [events]);
-
+  console.log(events);
   if (isLoading) return <></>;
   return (
     <div className={styles.eventsMain}>
@@ -27,7 +27,8 @@ export default function EventComponent() {
               | "PushEvent"
               | "CreateEvent"
               | "IssueCommentEvent"
-              | "CommitCommentEvent";
+              | "CommitCommentEvent"
+              | "IssuesEvent";
             payload: {
               commits: {
                 sha: "";
@@ -124,7 +125,8 @@ export default function EventComponent() {
 
               {event?.type === "CreateEvent" ||
               event?.type === "IssueCommentEvent" ||
-              event?.type === "CommitCommentEvent" ? (
+              event?.type === "CommitCommentEvent" ||
+              event?.type === "IssuesEvent" ? (
                 <></>
               ) : (
                 <div className={styles.eventRepoCard}>
